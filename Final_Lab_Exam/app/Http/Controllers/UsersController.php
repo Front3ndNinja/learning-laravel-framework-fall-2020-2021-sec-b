@@ -88,5 +88,47 @@ class UsersController extends Controller
         return redirect()->route('users.admin.home');
     }
 
-    
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Users  $users
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {   $user = Users::find($id);
+        return view('users.usersEdit', $user);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Users  $users
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $req, $id)
+    {
+        $req->validate([
+            'name' => 'required',
+            'companyName' => 'required',
+            'username' => 'required',
+            'contactno' => 'required',
+            'role' => 'required',
+            'password'=> 'required'
+        ]);
+
+        $user = Users::find($id);
+        $user->name         = $req->name;
+        $user->companyName  = $req->companyName;
+        $user->username     = $req->username;
+        $user->password     = $req->password;
+        $user->contactno    = $req->contactno;
+        $user->role         = $req->role;
+        $user->save();
+
+        $req->session()->flash('msg','User updated successfully.');
+        $req->session()->flash('type','success');            
+        return redirect()->route('users.admin.home');
+    }
+
 }
