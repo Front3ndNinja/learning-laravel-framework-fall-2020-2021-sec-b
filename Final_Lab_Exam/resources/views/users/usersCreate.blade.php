@@ -46,7 +46,7 @@
         <input type="" class="form-control" id="name" name="name" value="{{old('name')}}">
       </div>
       <div class="form-group">
-        <label for="name">companyName</label>
+        <label for="name">company name</label>
         <input type="" class="form-control" id="companyName" name="companyName" value="{{old('companyName')}}">
       </div>
       <div class="form-group">
@@ -54,7 +54,7 @@
         <input type="" class="form-control" id="username" name="username" value="{{old('username')}}">
       </div>
       <div class="form-group">
-        <label for="contactno">contactno</label>
+        <label for="contactno">contact no</label>
         <input class="form-control" id="contactno" name="contactno" value="{{old('contactno')}}">
       </div>
       <div class="form-group">
